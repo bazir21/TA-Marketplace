@@ -7,8 +7,10 @@ namespace Marketplace.Models
     public class Module
     {
         [Required]
+        [StringLength(50)]
         public string ModuleName { get; set; }
         [Required]
+        [StringLength(15)]
         public string ModuleCode { get; set; }
         [Required]
         public short AcademicYear { get; set; }

@@ -7,10 +7,12 @@ namespace Marketplace.Models
     public class Administrator
     {
         [Required]
+        [StringLength(50)]
         public string FirstName { get; set; }
         [Required]
+        [StringLength(50)]
         public string Surname { get; set; }
-        //TODO: Permissions
         public ICollection<Module> Modules { get; set; }
+        //TODO: Permissions
     }
 }

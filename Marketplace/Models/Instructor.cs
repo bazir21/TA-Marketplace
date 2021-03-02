@@ -7,9 +7,12 @@ namespace Marketplace.Models
     public class Instructor
     {
         [Required]
+        [StringLength(50)]
         public string FirstName { get; set; }
         [Required]
+        [StringLength(50)]
         public string Surname { get; set; }
+        [StringLength(5)]
         public string Level { get; set; }
         [Required]
         [EmailAddress]

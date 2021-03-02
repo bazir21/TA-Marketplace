@@ -9,6 +9,7 @@ namespace Marketplace.Models
         public Module ModuleBidded { get; set; }
         [Required]
         public Instructor InstructorBidded { get; set; }
-
+        [Required]
+        public short HoursBid { get; set; }
     }
 }
