@@ -6,6 +6,7 @@ namespace Marketplace.Models
 {
     public class Module
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(50)]
         public string ModuleName { get; set; }

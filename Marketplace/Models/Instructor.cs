@@ -6,6 +6,7 @@ namespace Marketplace.Models
 {
     public class Instructor
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(50)]
         public string FirstName { get; set; }
@@ -15,7 +16,7 @@ namespace Marketplace.Models
         [StringLength(5)]
         public string Level { get; set; }
         [Required]
-        [EmailAddress]
+        [EmailAddress] 
         private string TCDEmail { get; set; }
         public short minHoursAllowedSemesterOne { get; set; }
         public short maxHoursAllowedSemesterOne { get; set; }
@@ -25,7 +26,10 @@ namespace Marketplace.Models
 
         public short HoursAvailableSemesterOne { get; set; }
         public short HoursAvailableSemesterTwo { get; set; }
-        public ICollection<Module> Modules { get; set; }
+        
+        //List of modules where the instructor has been accepted. One to many
+        public ICollection<Module> ModulesWhereInstructor { get; set; }
+        //Bids not yet accepted or denied by admins. One to many
         public ICollection<Bid> OutstandingBids { get; set; }
     }
 }
