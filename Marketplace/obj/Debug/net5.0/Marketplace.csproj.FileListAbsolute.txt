@@ -38,3 +38,12 @@ D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Ma
 D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\obj\Debug\net5.0\Marketplace.pdb
 D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\obj\Debug\net5.0\Marketplace.genruntimeconfig.cache
 D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\obj\Debug\net5.0\Marketplace.csproj.CopyComplete
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\MySqlConnector.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Users\bayir\Documents\Documents\College\Third Year\SWENG II\TA-Marketplace\Marketplace\bin\Debug\net5.0\Pomelo.JsonObject.dll
