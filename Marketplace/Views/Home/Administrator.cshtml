@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Administrator page!</h1>
+</div>
+
+@foreach (var instructor in Model.Instructors)
+{
+    <h2>
+        @instructor.FirstName
+    </h2>
+}
