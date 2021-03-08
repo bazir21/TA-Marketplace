@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tYxGSbL2Jg07Jhtg+VANcoyzxrEKNu8V3eNkQykIU+8M92vW0QLThACTxmc8CHHt0Ptfkld8dQu4fwXQg6jipg==",
+  "dgSpecHash": "EFlv82vMCH+Ea735qF9qeMmCJQWnmgxoKCbI6si4ktq8VjqR5bSmTTG15vUPO/5UCCCfN+oOE9eul4nRLfpHaQ==",
   "success": true,
   "projectFilePath": "D:\\Users\\bayir\\Documents\\Documents\\College\\Third Year\\SWENG II\\TA-Marketplace\\Marketplace\\Marketplace.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\bayir\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
