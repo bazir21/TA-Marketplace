@@ -52,19 +52,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bayir\\.nuget\\packages\\": {}
+    "C:\\Users\\borsa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\bayir\\Documents\\Documents\\College\\Third Year\\SWENG II\\TA-Marketplace\\Marketplace\\Marketplace.csproj",
+      "projectUniqueName": "C:\\My Folder\\University\\Software Engineering Project\\TA-Marketplace\\Marketplace\\Marketplace.csproj",
       "projectName": "Marketplace",
-      "projectPath": "D:\\Users\\bayir\\Documents\\Documents\\College\\Third Year\\SWENG II\\TA-Marketplace\\Marketplace\\Marketplace.csproj",
-      "packagesPath": "C:\\Users\\bayir\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\bayir\\Documents\\Documents\\College\\Third Year\\SWENG II\\TA-Marketplace\\Marketplace\\obj\\",
+      "projectPath": "C:\\My Folder\\University\\Software Engineering Project\\TA-Marketplace\\Marketplace\\Marketplace.csproj",
+      "packagesPath": "C:\\Users\\borsa\\.nuget\\packages\\",
+      "outputPath": "C:\\My Folder\\University\\Software Engineering Project\\TA-Marketplace\\Marketplace\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\bayir\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\borsa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
