@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\bayir\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\bayir\\.nuget\\packages"
+      "C:\\Users\\borsa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\borsa\\.nuget\\packages"
     ]
   }
 }
