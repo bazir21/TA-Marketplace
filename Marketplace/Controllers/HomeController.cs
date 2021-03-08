@@ -5,21 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Marketplace.Services;
 using Marketplace.Models;
 using System.Net;
-using Newtonsoft.Json;
 
 namespace Marketplace.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        public JsonFileInstructor InstructorService;
+        public IEnumerable<InstructorModel> Instructors { get; private set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, JsonFileInstructor instructor)
         {
             _logger = logger;
+            InstructorService = instructor;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -32,10 +34,8 @@ namespace Marketplace.Controllers
 
         public IActionResult Administrator()
         {
-            var webClient= new WebClient();
-            var instructorsJson= webClient.DownloadString("C:/My Folder/University/Software Engineering Project/TA-Marketplace/Marketplace/wwwroot/data/instructors.json");
-            var InstructorList= JsonConvert.DeserializeObject<InstructorsModel>(instructorsJson);
-            return View(InstructorList);
+            Instructors = InstructorService.GetInstructors();
+            return View(Instructors);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

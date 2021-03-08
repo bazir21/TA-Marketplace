@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using System.Text.Json;
 
 namespace Marketplace.Models
@@ -8,18 +9,23 @@ namespace Marketplace.Models
     public class InstructorModel
     {
         public int Id { get; set; }
-        [Required]
+
+        //[Required]
         [StringLength(50)]
-        public string FirstName { get; set; }
-        [Required]
+        public string firstName { get; set; }
+
+        //[Required]
         [StringLength(50)]
-        public string Surname { get; set; }
+        public string lastName { get; set; }
+
         [StringLength(5)]
         public string Level { get; set; }
-        [Required]
-        [EmailAddress] 
+
+        //[Required]
+        [EmailAddress]
+        [JsonPropertyName("emailTCD")]
         private string TCDEmail { get; set; }
-        public short minHoursAllowedSemesterOne { get; set; }
+        /* public short minHoursAllowedSemesterOne { get; set; }
         public short maxHoursAllowedSemesterOne { get; set; }
 
         public short minHoursAllowedSemesterTwo { get; set; }
@@ -33,6 +39,8 @@ namespace Marketplace.Models
         //List of modules where the instructor has been accepted. One to many
         //public ICollection<ModuleModel> ModulesWhereInstructor { get; set; }
         //Bids not yet accepted or denied by admins. One to many
-        //public ICollection<BidModel> OutstandingBids { get; set; }
+        public ICollection<BidModel> OutstandingBids { get; set; } */
+
+        public override String ToString() => JsonSerializer.Serialize<InstructorModel>(this);
     }
 }
