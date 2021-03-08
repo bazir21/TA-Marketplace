@@ -1,0 +1,12 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Text.Json;
+
+namespace Marketplace.Models
+{
+    public class InstructorsModel
+    {
+        public IList<InstructorModel> Instructors { get; set; }  
+    }
+}

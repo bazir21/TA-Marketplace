@@ -4,12 +4,32 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to the Administrator page!</h1>
+    <h1 class="display-4">Administrator Page</h1>
 </div>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 @foreach (var instructor in Model)
 {
-    <h2>
-        @instructor.firstName
-    </h2>
+        <tr>
+            <td>
+                @instructor.firstName
+                @instructor.lastName
+                <p style="font-size:11px"> -Instructor Level: @instructor.Level</p>
+            </td>
+            <td class="text-right">
+                @Html.ActionLink("Accept", "Accept", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Deny", "Deny", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
 }
+    </tbody>
+</table>

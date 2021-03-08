@@ -19,7 +19,6 @@ namespace Marketplace.Models
         public string lastName { get; set; }
 
         [StringLength(5)]
-        [JsonPropertyName("instructorLevel")]
         public string Level { get; set; }
 
         //[Required]
@@ -35,8 +34,10 @@ namespace Marketplace.Models
         public short HoursAvailableSemesterOne { get; set; }
         public short HoursAvailableSemesterTwo { get; set; }
         
+        public string[] ModulesWhereInstructor { get; set; }
+        public string[] OutstandingBids { get; set; }
         //List of modules where the instructor has been accepted. One to many
-        public ICollection<ModuleModel> ModulesWhereInstructor { get; set; }
+        //public ICollection<ModuleModel> ModulesWhereInstructor { get; set; }
         //Bids not yet accepted or denied by admins. One to many
         public ICollection<BidModel> OutstandingBids { get; set; } */
 

@@ -1,111 +1,111 @@
 [
   {
-    "id": 123,
-    "firstName": "Cian",
-    "lastName": "Crowley",
-    "instructorLevel": "Demonstrator 2",
-    "emailTCD": "crowleyc@tcd.ie",
-    "minHoursSemOne": "10",
-    "maxHoursSemOne": "30",
-    "minHoursSemTwo": "10",
-    "maxHoursSemTwo": "30",
-    "hoursAvailSemOne": "20",
-    "hoursAvailSemTwo": "20",
-    "module": [
+    "Id": 123,
+    "FirstName": "Cian",
+    "Surname": "Crowley",
+    "Level": "Demonstrator 2",
+    "TCDEmail": "crowleyc@tcd.ie",
+    "minHoursAllowedSemesterOne": 10,
+    "maxHoursAllowedSemesterOne": 30,
+    "minHoursAllowedSemesterTwo": 10,
+    "maxHoursAllowedSemesterTwo": 30,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
       "CSU23016- Concurrent Systems & Operating Systems",
       "CSU11001- Mathematics 1"
     ],
-    "outstandingBids": []
+    "OutstandingBids": null
   },
   {
-    "id": 132,
-    "firstName": "Vince",
-    "lastName": "Casey",
-    "instructorLevel": "Demonstrator 2",
-    "emailTCD": "caseyv@tcd.ie",
-    "minHoursSemOne": "10",
-    "maxHoursSemOne": "30",
-    "minHoursSemTwo": "10",
-    "maxHoursSemTwo": "30",
-    "hoursAvailSemOne": "20",
-    "hoursAvailSemTwo": "20",
-    "module": [
+    "Id": 132,
+    "FirstName": "Vince",
+    "Surname": "Casey",
+    "Level": "Demonstrator 2",
+    "TCDEmail": "caseyv@tcd.ie",
+    "minHoursAllowedSemesterOne": 10,
+    "maxHoursAllowedSemesterOne": 30,
+    "minHoursAllowedSemesterTwo": 10,
+    "maxHoursAllowedSemesterTwo": 30,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
       "CSU11002- Mathematics 2"
     ],
-    "outstandingBids": [
+    "OutstandingBids": [
       "CSU11010- Introduction to Programming"
     ]
   },
   {
-    "id": 321,
-    "firstName": "Bair",
-    "lastName": "Buyrchiyev",
-    "instructorLevel": "Demonstrator 2",
-    "emailTCD": "buyrchiyevb@tcd.ie",
-    "minHoursSemOne": "10",
-    "maxHoursSemOne": "30",
-    "minHoursSemTwo": "10",
-    "maxHoursSemTwo": "30",
-    "hoursAvailSemOne": "20",
-    "hoursAvailSemTwo": "20",
-    "module": [
+    "Id": 321,
+    "FirstName": "Bair",
+    "Surname": "Buyrchiyev",
+    "Level": "Demonstrator 2",
+    "TCDEmail": "buyrchiyevb@tcd.ie",
+    "minHoursAllowedSemesterOne": 10,
+    "maxHoursAllowedSemesterOne": 30,
+    "minHoursAllowedSemesterTwo": 10,
+    "maxHoursAllowedSemesterTwo": 30,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
       "CSU11013- Programming Project"
     ],
-    "outstandingBids": [
+    "OutstandingBids": [
       "CSU11021- Introduction to Computing 1"
     ]
   },
   {
-    "id": 231,
-    "firstName": "Conn",
-    "lastName": "Breathnach",
-    "instructorLevel": "Demonstrator 1",
-    "emailTCD": "breathnachc@tcd.ie",
-    "minHoursSemOne": "0",
-    "maxHoursSemOne": "20",
-    "minHoursSemTwo": "0",
-    "maxHoursSemTwo": "20",
-    "hoursAvailSemOne": "20",
-    "hoursAvailSemTwo": "20",
-    "module": [
+    "Id": 231,
+    "FirstName": "Conn",
+    "Surname": "Breathnach",
+    "Level": "Demonstrator 1",
+    "TCDEmail": "breathnachc@tcd.ie",
+    "minHoursAllowedSemesterOne": 0,
+    "maxHoursAllowedSemesterOne": 20,
+    "minHoursAllowedSemesterTwo": 0,
+    "maxHoursAllowedSemesterTwo": 20,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
       "CSU11021- Introduction to Computing 1",
       "CSU11026- Digital Logic Design"
     ],
-    "outstandingBids": []
+    "OutstandingBids": null
   },
   {
-    "id": 213,
-    "firstName": "Jacqueline",
-    "lastName": "McCarrick",
-    "instructorLevel": "Demonstrator 1",
-    "emailTCD": "mccarrickj@tcd.ie",
-    "minHoursSemOne": "0",
-    "maxHoursSemOne": "20",
-    "minHoursSemTwo": "0",
-    "maxHoursSemTwo": "20",
-    "hoursAvailSemOne": "20",
-    "hoursAvailSemTwo": "20",
-    "module": [
+    "Id": 213,
+    "FirstName": "Jacqueline",
+    "Surname": "McCarrick",
+    "Level": "Demonstrator 1",
+    "TCDEmail": "mccarrickj@tcd.ie",
+    "minHoursAllowedSemesterOne": 0,
+    "maxHoursAllowedSemesterOne": 20,
+    "minHoursAllowedSemesterTwo": 0,
+    "maxHoursAllowedSemesterTwo": 20,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
       "CSU11031- Electronics and Information Technology"
     ],
-    "outstandingBids": [
+    "OutstandingBids": [
       "CSU11081- Computers and Society"
     ]
   },
   {
-    "id": 101,
-    "firstName": "Vitali",
-    "lastName": "Borsak",
-    "instructorLevel": "Demonstrator 1",
-    "emailTCD": "borsakv@tcd.ie",
-    "minHoursSemOne": "0",
-    "maxHoursSemOne": "20",
-    "minHoursSemTwo": "0",
-    "maxHoursSemTwo": "20",
-    "hoursAvailSemOne": "20",
-    "hoursAvailSemTwo": "20",
-    "module": [],
-    "outstandingBids": [
+    "Id": 101,
+    "FirstName": "Vitali",
+    "Surname": "Borsak",
+    "Level": "Demonstrator 1",
+    "TCDEmail": "borsakv@tcd.ie",
+    "minHoursAllowedSemesterOne": 0,
+    "maxHoursAllowedSemesterOne": 20,
+    "minHoursAllowedSemesterTwo": 0,
+    "maxHoursAllowedSemesterTwo": 20,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": null,
+    "OutstandingBids": [
       "CSU22011- Algorithms & Data Structures 1",
       "CSU11021- Introduction to Computing 1"
     ]
