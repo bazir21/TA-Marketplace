@@ -1,14 +1,36 @@
+@model Marketplace.Models.InstructorsModel
+
 @{
     ViewData["Title"] = "Admin";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to the Administrator page!</h1>
+    <h1 class="display-4">Administrator Page</h1>
 </div>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 @foreach (var instructor in Model.Instructors)
 {
-    <h2>
-        @instructor.FirstName
-    </h2>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => instructor.FirstName)
+                @Html.DisplayFor(modelItem => instructor.Surname) 
+                <p style="font-size:11px"> -Instructor Level: @Html.DisplayFor(modelItem => instructor.Level)</p>
+            </td>
+            <td class="text-right">
+                @Html.ActionLink("Accept", "Accept", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Deny", "Deny", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
 }
+    </tbody>
+</table>

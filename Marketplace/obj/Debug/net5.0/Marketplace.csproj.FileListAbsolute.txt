@@ -79,3 +79,4 @@ C:\My Folder\University\Software Engineering Project\TA-Marketplace\Marketplace\
 C:\My Folder\University\Software Engineering Project\TA-Marketplace\Marketplace\obj\Debug\net5.0\Marketplace.genruntimeconfig.cache
 C:\My Folder\University\Software Engineering Project\TA-Marketplace\Marketplace\obj\Debug\net5.0\Marketplace.csproj.CopyComplete
 C:\My Folder\University\Software Engineering Project\TA-Marketplace\Marketplace\obj\Debug\net5.0\Razor\Views\Home\Administrator.cshtml.g.cs
+C:\My Folder\University\Software Engineering Project\TA-Marketplace\Marketplace\bin\Debug\net5.0\Newtonsoft.Json.dll

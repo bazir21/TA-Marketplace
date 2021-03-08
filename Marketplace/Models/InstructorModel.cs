@@ -28,11 +28,11 @@ namespace Marketplace.Models
         public short HoursAvailableSemesterOne { get; set; }
         public short HoursAvailableSemesterTwo { get; set; }
         
+        public string[] ModulesWhereInstructor { get; set; }
+        public string[] OutstandingBids { get; set; }
         //List of modules where the instructor has been accepted. One to many
-        public ICollection<ModuleModel> ModulesWhereInstructor { get; set; }
+        //public ICollection<ModuleModel> ModulesWhereInstructor { get; set; }
         //Bids not yet accepted or denied by admins. One to many
-        public ICollection<BidModel> OutstandingBids { get; set; }
-
-        public override String ToString() => JsonSerializer.Serialize<InstructorModel>(this);
+        //public ICollection<BidModel> OutstandingBids { get; set; }
     }
 }
