@@ -19,9 +19,8 @@ namespace Marketplace.Controllers
         public HomeController(ILogger<HomeController> logger, JsonFileInstructor instructor)
         {
             _logger = logger;
-            InstructorService= instructor;
+            InstructorService = instructor;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -34,18 +33,14 @@ namespace Marketplace.Controllers
 
         public IActionResult Administrator()
         {
-            return View();
+            Instructors = InstructorService.GetInstructors();
+            return View(Instructors);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public void OnGet()
-        {
-            InstructorService.GetProducts();
         }
     }
 }

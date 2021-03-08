@@ -1,3 +1,4 @@
+@model IEnumerable<Marketplace.Models.InstructorModel>
 @{
     ViewData["Title"] = "Admin";
 }
@@ -6,9 +7,9 @@
     <h1 class="display-4">Welcome to the Administrator page!</h1>
 </div>
 
-@foreach (var instructor in Model.Instructors)
+@foreach (var instructor in Model)
 {
     <h2>
-        @instructor.FirstName
+        @instructor.firstName
     </h2>
 }

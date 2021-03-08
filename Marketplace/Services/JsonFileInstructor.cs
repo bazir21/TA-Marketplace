@@ -21,11 +21,11 @@ namespace Marketplace.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "instructors.json"); }
         }
 
-        public IEnumerable<JsonFileInstructor> GetProducts()
+        public IEnumerable<InstructorModel> GetInstructors()
         {
-            using(var jsonFileReader = File.OpenText(JsonFileName))
+            using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<JsonFileInstructor[]>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<InstructorModel[]>(jsonFileReader.ReadToEnd(),
                 new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
