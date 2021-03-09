@@ -4,7 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Debug folder
-bin/Debug/
+Marketplace/bin/
+Marketplace/obj/
 
 # User-specific files
 *.rsuser
