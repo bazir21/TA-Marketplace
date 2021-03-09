@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\borsa\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\borsa\\.nuget\\packages"
-    ]
-  }
-}
