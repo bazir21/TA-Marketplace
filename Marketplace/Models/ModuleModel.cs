@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Marketplace.Models
 {
@@ -27,5 +28,7 @@ namespace Marketplace.Models
         [Required]
         public short MinHoursPerInstructor { get; set; }
         public ICollection<string> KeywordsAssociatedWithModule { get; set; }
+
+         public override String ToString() => JsonSerializer.Serialize<ModuleModel>(this);
     }
 }

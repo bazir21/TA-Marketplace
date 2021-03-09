@@ -26,6 +26,7 @@ namespace Marketplace
         {
             services.AddControllersWithViews();
             services.AddTransient<JsonFileInstructor>();
+            services.AddTransient<JsonFileModuleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

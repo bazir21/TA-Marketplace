@@ -15,12 +15,17 @@ namespace Marketplace.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         public JsonFileInstructor InstructorService;
+
+        public JsonFileModuleService ModuleService;
         public IEnumerable<InstructorModel> Instructors { get; private set; }
 
-        public HomeController(ILogger<HomeController> logger, JsonFileInstructor instructor)
+        public IEnumerable<ModuleModel> Modules { get; private set; }
+
+        public HomeController(ILogger<HomeController> logger, JsonFileInstructor instructor, JsonFileModuleService module)
         {
             _logger = logger;
             InstructorService = instructor;
+            ModuleService = module;
         }
         public IActionResult Index()
         {
@@ -36,6 +41,12 @@ namespace Marketplace.Controllers
         {
             Instructors = InstructorService.GetInstructors();
             return View(Instructors);
+        }
+
+        public IActionResult Instructor()
+        {
+            Modules = ModuleService.GetModules();
+            return View(Modules);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
