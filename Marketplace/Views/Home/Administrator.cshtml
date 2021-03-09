@@ -3,33 +3,67 @@
     ViewData["Title"] = "Admin";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Administrator Page</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<!-- Clickable tabs -->
+<div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="height:580px;width:130px">
+    <h5 class="w3-bar-item">Menu</h5>
+    <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'instructorInfo')">Instructor Information</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'instructorBids')">Bids</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'moduleTab')">Modules</button>
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
+<!-- Info in tabs -->
+<div style="margin-left:130px">
+    <div class="w3-padding" style="font-size:24px">Administrator Page</div>
 
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var instructor in Model)
-{
-        <tr>
-            <td>
-                @instructor.firstName
-                @instructor.lastName
-                <p style="font-size:11px"> -Instructor Level: @instructor.Level</p>
-            </td>
-            <td class="text-right">
-                @Html.ActionLink("Accept", "Accept", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Deny", "Deny", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+    <div id="instructorInfo" class="w3-container tabType w3-animate-right" style="display:none">
+        <p>
+            <table class="table"> 
+                <tbody>
+@foreach (var instructor in Model) {
+                    <tr>
+                        <td>
+                            @instructor.firstName
+                            @instructor.lastName
+                            <p style="font-size:11px"> -Level: @instructor.Level</p>
+                        </td>
+                        <td class="text-right" style="font-size:15px">
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
 }
-    </tbody>
-</table>
+                </tbody>
+            </table>
+        </p>
+    </div>
+
+    <div id="instructorBids" class="w3-container tabType" style="display:none">
+        <p>//TODO</p> 
+    </div>
+
+    <div id="moduleTab" class="w3-container tabType" style="display:none">
+        <p>//TODO</p>
+    </div>
+</div>    
+
+<!-- Function to show & hide tabs tepending on which tab is currently selected -->
+<script>
+function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("tabType");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  tablinks= document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++){
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(tabName).style.display = "block"; 
+  evt.currentTarget.className+= " w3-red";
+}
+</script>
+
+</body>

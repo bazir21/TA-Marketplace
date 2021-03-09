@@ -2,7 +2,7 @@
   {
     "Id": 123,
     "FirstName": "Cian",
-    "Surname": "Crowley",
+    "LastName": "Crowley",
     "Level": "Demonstrator 2",
     "TCDEmail": "crowleyc@tcd.ie",
     "minHoursAllowedSemesterOne": 10,
@@ -20,7 +20,7 @@
   {
     "Id": 132,
     "FirstName": "Vince",
-    "Surname": "Casey",
+    "LastName": "Casey",
     "Level": "Demonstrator 2",
     "TCDEmail": "caseyv@tcd.ie",
     "minHoursAllowedSemesterOne": 10,
@@ -38,8 +38,8 @@
   },
   {
     "Id": 321,
-    "FirstName": "Bair",
-    "Surname": "Buyrchiyev",
+    "FirstName": "Bayir",
+    "LastName": "Buyrchiyev",
     "Level": "Demonstrator 2",
     "TCDEmail": "buyrchiyevb@tcd.ie",
     "minHoursAllowedSemesterOne": 10,
@@ -58,7 +58,7 @@
   {
     "Id": 231,
     "FirstName": "Conn",
-    "Surname": "Breathnach",
+    "LastName": "Breathnach",
     "Level": "Demonstrator 1",
     "TCDEmail": "breathnachc@tcd.ie",
     "minHoursAllowedSemesterOne": 0,
@@ -76,7 +76,7 @@
   {
     "Id": 213,
     "FirstName": "Jacqueline",
-    "Surname": "McCarrick",
+    "LastName": "McCarrick",
     "Level": "Demonstrator 1",
     "TCDEmail": "mccarrickj@tcd.ie",
     "minHoursAllowedSemesterOne": 0,
@@ -95,7 +95,7 @@
   {
     "Id": 101,
     "FirstName": "Vitali",
-    "Surname": "Borsak",
+    "LastName": "Borsak",
     "Level": "Demonstrator 1",
     "TCDEmail": "borsakv@tcd.ie",
     "minHoursAllowedSemesterOne": 0,
