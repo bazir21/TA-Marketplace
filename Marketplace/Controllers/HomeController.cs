@@ -32,6 +32,16 @@ namespace Marketplace.Controllers
             return View();
         }
 
+        public IActionResult Instructor()
+        {
+            return View();
+        }
+
+        public IActionResult Administrator()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
