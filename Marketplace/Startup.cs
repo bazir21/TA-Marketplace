@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Marketplace.Services;
 
 using Marketplace.Data;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,8 @@ namespace Marketplace
             services.AddDbContext<MarketplaceContext>(options => options.UseMySql(Configuration.GetConnectionString("MarketplaceConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter(); //The AddDatabaseDeveloperPageExceptionFilter provides helpful error information in the development environment.
             services.AddControllersWithViews();
+            services.AddTransient<JsonFileInstructor>();
+            services.AddTransient<JsonFileModuleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

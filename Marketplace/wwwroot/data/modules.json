@@ -1,0 +1,34 @@
+[
+{
+    "Id": 123,
+    "ModuleName": "Introduction to Programming",
+    "ModuleCode": "CSU11001_S1",
+    "Semester": 1,
+    "AcademicYear": 2020,
+    "TotalHoursAvailable": 200,
+    "MinHoursPerInstructor": 12,
+    "MaxHoursPerInstructor": 30
+},
+
+{
+    "Id": 1234,
+    "ModuleName": "Statistical Analysis",
+    "ModuleCode": "STU11002_S1",
+    "AcademicYear": 2020,
+    "Semester": 1,
+    "TotalHoursAvailble": 150,
+    "MinHoursPerInstructor": 15,
+    "MaxHoursPerInstructor": 30
+},
+
+{
+    "Id": 12345,
+    "ModuleName": "Programming Project",
+    "ModuleCode": "CSU11013_S2",
+    "AcademicYear": 2020,
+    "Semester": 2,
+    "TotalHoursAvailable": 120,
+    "MinHoursPerInstructor": 12,
+    "MaxHoursPerInstructor": 40
+}
+]

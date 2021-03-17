@@ -5,19 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Marketplace.Services;
 using Marketplace.Models;
+using System.Net;
 
 namespace Marketplace.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        public JsonFileInstructor InstructorService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public JsonFileModuleService ModuleService;
+        public IEnumerable<InstructorModel> Instructors { get; private set; }
+
+        public IEnumerable<ModuleModel> Modules { get; private set; }
+
+        public HomeController(ILogger<HomeController> logger, JsonFileInstructor instructor, JsonFileModuleService module)
         {
             _logger = logger;
+            InstructorService = instructor;
+            ModuleService = module;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -36,6 +45,18 @@ namespace Marketplace.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Administrator()
+        {
+            Instructors = InstructorService.GetInstructors();
+            return View(Instructors);
+        }
+
+        public IActionResult Instructor()
+        {
+            Modules = ModuleService.GetModules();
+            return View(Modules);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,7 +1,13 @@
+@model IEnumerable<Marketplace.Models.ModuleModel>
 @{
-    ViewData["Title"] = "Instructor";
+    ViewData["Title"] = "Instructors";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to the instructor page!</h1>
+    <h1 class="display-4">Instructors</h1>
 </div>
+
+@foreach(var module in Model)
+{
+    <h2>@module.ModuleName</h2>
+}

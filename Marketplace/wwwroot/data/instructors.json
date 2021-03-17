@@ -1,0 +1,113 @@
+[
+  {
+    "Id": 123,
+    "FirstName": "Cian",
+    "LastName": "Crowley",
+    "Level": "Demonstrator 2",
+    "TCDEmail": "crowleyc@tcd.ie",
+    "minHoursAllowedSemesterOne": 10,
+    "maxHoursAllowedSemesterOne": 30,
+    "minHoursAllowedSemesterTwo": 10,
+    "maxHoursAllowedSemesterTwo": 30,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
+      "CSU23016- Concurrent Systems & Operating Systems",
+      "CSU11001- Mathematics 1"
+    ],
+    "OutstandingBids": null
+  },
+  {
+    "Id": 132,
+    "FirstName": "Vince",
+    "LastName": "Casey",
+    "Level": "Demonstrator 2",
+    "TCDEmail": "caseyv@tcd.ie",
+    "minHoursAllowedSemesterOne": 10,
+    "maxHoursAllowedSemesterOne": 30,
+    "minHoursAllowedSemesterTwo": 10,
+    "maxHoursAllowedSemesterTwo": 30,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
+      "CSU11002- Mathematics 2"
+    ],
+    "OutstandingBids": [
+      "CSU11010- Introduction to Programming"
+    ]
+  },
+  {
+    "Id": 321,
+    "FirstName": "Bair",
+    "LastName": "Buyrchiyev",
+    "Level": "Demonstrator 2",
+    "TCDEmail": "buyrchiyevb@tcd.ie",
+    "minHoursAllowedSemesterOne": 10,
+    "maxHoursAllowedSemesterOne": 30,
+    "minHoursAllowedSemesterTwo": 10,
+    "maxHoursAllowedSemesterTwo": 30,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
+      "CSU11013- Programming Project"
+    ],
+    "OutstandingBids": [
+      "CSU11021- Introduction to Computing 1"
+    ]
+  },
+  {
+    "Id": 231,
+    "FirstName": "Conn",
+    "LastName": "Breathnach",
+    "Level": "Demonstrator 1",
+    "TCDEmail": "breathnachc@tcd.ie",
+    "minHoursAllowedSemesterOne": 0,
+    "maxHoursAllowedSemesterOne": 20,
+    "minHoursAllowedSemesterTwo": 0,
+    "maxHoursAllowedSemesterTwo": 20,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
+      "CSU11021- Introduction to Computing 1",
+      "CSU11026- Digital Logic Design"
+    ],
+    "OutstandingBids": null
+  },
+  {
+    "Id": 213,
+    "FirstName": "Jacqueline",
+    "LastName": "McCarrick",
+    "Level": "Demonstrator 1",
+    "TCDEmail": "mccarrickj@tcd.ie",
+    "minHoursAllowedSemesterOne": 0,
+    "maxHoursAllowedSemesterOne": 20,
+    "minHoursAllowedSemesterTwo": 0,
+    "maxHoursAllowedSemesterTwo": 20,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": [
+      "CSU11031- Electronics and Information Technology"
+    ],
+    "OutstandingBids": [
+      "CSU11081- Computers and Society"
+    ]
+  },
+  {
+    "Id": 101,
+    "FirstName": "Vitali",
+    "LastName": "Borsak",
+    "Level": "Demonstrator 1",
+    "TCDEmail": "borsakv@tcd.ie",
+    "minHoursAllowedSemesterOne": 0,
+    "maxHoursAllowedSemesterOne": 20,
+    "minHoursAllowedSemesterTwo": 0,
+    "maxHoursAllowedSemesterTwo": 20,
+    "HoursAvailableSemesterOne": 20,
+    "HoursAvailableSemesterTwo": 20,
+    "ModulesWhereInstructor": null,
+    "OutstandingBids": [
+      "CSU22011- Algorithms & Data Structures 1",
+      "CSU11021- Introduction to Computing 1"
+    ]
+  }
+]
