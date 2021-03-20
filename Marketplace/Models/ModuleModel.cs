@@ -29,6 +29,6 @@ namespace Marketplace.Models
         public short MinHoursPerInstructor { get; set; }
         public ICollection<string> KeywordsAssociatedWithModule { get; set; }
 
-         public override String ToString() => JsonSerializer.Serialize<ModuleModel>(this);
+        public override String ToString() => JsonSerializer.Serialize<ModuleModel>(this);
     }
 }

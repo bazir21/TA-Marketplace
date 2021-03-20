@@ -7,12 +7,12 @@ namespace Marketplace.Data
     {
         public MarketplaceContext(DbContextOptions<MarketplaceContext> options) : base(options)
         {
-
+            
         }
         //DbSets for tables in the database
-        public DbSet<Module> Modules { get; set; }
-        public DbSet<Bid> Bids { get; set; }
-        public DbSet<Instructor> Instructors { get; set; }
-        public DbSet<Administrator> Administrators { get; set; }
+        public DbSet<ModuleModel> Modules { get; set; }
+        public DbSet<BidModel> Bids { get; set; }
+        public DbSet<InstructorsModel> Instructors { get; set; }
+        public DbSet<AdministratorModel> Administrators { get; set; }
     }
 }
