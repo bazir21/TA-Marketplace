@@ -10,18 +10,18 @@ namespace Marketplace.Models
     {
         public int Id { get; set; }
 
-        //[Required]
+        [Required]
         [StringLength(50)]
         public string firstName { get; set; }
 
-        //[Required]
+        [Required]
         [StringLength(50)]
         public string lastName { get; set; }
 
         [StringLength(5)]
         public string Level { get; set; }
 
-        //[Required]
+        [Required]
         [EmailAddress]
         [JsonPropertyName("emailTCD")]
         private string TCDEmail { get; set; }

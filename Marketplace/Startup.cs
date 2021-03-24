@@ -12,6 +12,7 @@ using Marketplace.Services;
 
 using Marketplace.Data;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Marketplace
 {
@@ -27,7 +28,8 @@ namespace Marketplace
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MarketplaceContext>(options => options.UseMySql(Configuration.GetConnectionString("MarketplaceConnection")));
+            services.AddDbContext<MarketplaceContext>(options => options.UseMySql(Configuration.GetConnectionString("MarketplaceConnection"), new MariaDbServerVersion(new Version(10, 5, 9)),
+                        mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend)));
             services.AddDatabaseDeveloperPageExceptionFilter(); //The AddDatabaseDeveloperPageExceptionFilter provides helpful error information in the development environment.
             services.AddControllersWithViews();
             services.AddTransient<JsonFileInstructor>();

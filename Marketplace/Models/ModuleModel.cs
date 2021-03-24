@@ -27,7 +27,7 @@ namespace Marketplace.Models
         public short MaxHoursPerInstructor { get; set; }
         [Required]
         public short MinHoursPerInstructor { get; set; }
-        public ICollection<string> KeywordsAssociatedWithModule { get; set; }
+        //public ICollection<String> KeywordsAssociatedWithModule { get; set; }
 
         public override String ToString() => JsonSerializer.Serialize<ModuleModel>(this);
     }

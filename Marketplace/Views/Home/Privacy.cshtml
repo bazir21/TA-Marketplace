@@ -1,6 +1,12 @@
+@model List<ModuleModel>
 @{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
+
+@foreach (var modele in Model)
+{
+    <h2>@modele.ModuleName</h2>
+}
 
 <p>Use this page to detail your site's privacy policy.</p>

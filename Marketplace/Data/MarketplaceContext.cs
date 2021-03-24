@@ -9,10 +9,17 @@ namespace Marketplace.Data
         {
             
         }
-        //DbSets for tables in the database
         public DbSet<ModuleModel> Modules { get; set; }
         public DbSet<BidModel> Bids { get; set; }
-        public DbSet<InstructorsModel> Instructors { get; set; }
+        public DbSet<InstructorModelList> Instructors { get; set; }
         public DbSet<AdministratorModel> Administrators { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ModuleModel>().ToTable("modules");
+            modelBuilder.Entity<BidModel>().ToTable("BidModel");
+            modelBuilder.Entity<InstructorModelList>().ToTable("InstructorModelList");
+            modelBuilder.Entity<AdministratorModel>().ToTable("AdministratorModel");
+        }
     }
 }
