@@ -1,0 +1,18 @@
+@model IEnumerable<Marketplace.Models.BidModel>
+
+@{
+    ViewData["Title"] = "Bids";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the bid page!</h1>
+</div>
+
+<ul>
+    @foreach (var bid in Model)
+    {
+        <li>@bid.InstructorBidded</li>
+        <li>@bid.ModuleModelId</li>
+        <li>@bid.HoursBid</li>
+    }
+</ul>
