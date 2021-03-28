@@ -1,0 +1,47 @@
+@model IEnumerable<Marketplace.Models.ModuleModel>
+
+@{
+    ViewData["Title"] = "Modules";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Select module to create a bid</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcademicYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{       
+    <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcademicYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @* <a asp-controller="Bid" asp-action="Create" asp-route-id="@item.Id">Bid</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> | *@
+                @* <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+                @Html.ActionLink("Bid", "Create", "Bid", new { moduleId = item.Id })
+                @Html.ActionLink("Details", "Details", "Bid", new { moduleId = item.Id })
+            </td>
+        </tr>
+}

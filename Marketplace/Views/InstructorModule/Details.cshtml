@@ -1,0 +1,51 @@
+@model Marketplace.Models.ModuleModel
+
+@{
+    var module = Model;
+    ViewData["Title"] = module.ModuleName;
+}
+
+<div class="text-center">
+    <h4 class="display-4">@Html.DisplayNameFor(model => model.ModuleName)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModuleCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModuleCode)
+        </dd>
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AcademicYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AcademicYear)
+        </dd>
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lecturers)
+        </dt>
+        @* @foreach (var lecturer in Model.Lecturers)
+        {
+            <dd class = "col-sm-10">@lecturer.ToString()</dd>
+        } *@
+
+        @* <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KeywordsAssociatedWithModule)
+        </dt>
+        <dd class = "col-sm-10"></dd> *@
+        @* @foreach (var keyword in Model.KeywordsAssociatedWithModule)
+        {
+            <p>@keyword </p>
+        } *@
+        </dd>
+    </dl>
+</div>
