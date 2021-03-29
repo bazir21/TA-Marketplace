@@ -45,7 +45,12 @@ namespace Marketplace.Controllers
             return View(Instructors);
         }
 
-        public IActionResult Instructor()
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+         public IActionResult Instructor()
         {
             Modules = ModuleService.GetModules();
             return View(Modules);
