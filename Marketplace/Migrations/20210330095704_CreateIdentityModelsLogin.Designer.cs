@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Marketplace.Migrations
 {
     [DbContext(typeof(MarketplaceContext))]
-    [Migration("20210329203935_CreateIdentityModelsLogin")]
+    [Migration("20210330095704_CreateIdentityModelsLogin")]
     partial class CreateIdentityModelsLogin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,11 +169,11 @@ namespace Marketplace.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("longtext");
 

@@ -33,7 +33,7 @@ namespace Marketplace.Controllers
         [HttpPost]
         public IActionResult UserLogin(UserModel user)
         {
-            if (LoginService.LoginProcess(user.Id, user.Password))
+            if (LoginService.LoginProcess(user.Email, user.Password))
                 return RedirectToAction("Index", "Home");
             else
                 return RedirectToAction("Index", "UserLogin");    

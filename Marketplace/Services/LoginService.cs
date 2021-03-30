@@ -18,14 +18,14 @@ namespace Marketplace.Services
             this.db = db;
         }
 
-        public bool LoginProcess(int id, string strPassword)
+        public bool LoginProcess(string strEmail, string strPassword)
         {
             bool validation= false;
-            UserModel user= db.Users.Find(id);
+            UserModel currentUser= db.Users.FirstOrDefault(user=>user.Email.Equals(strEmail));
             
-            if(user!=null)
+            if(currentUser!=null)
             {
-                if(user.Password.Equals(strPassword))
+                if(currentUser.Password.Equals(strPassword))
                     validation= true;
                 else 
                     validation= false;
