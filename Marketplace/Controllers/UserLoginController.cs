@@ -31,12 +31,12 @@ namespace Marketplace.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserLogin(UserModel user)
+        public IActionResult UserLogin(UserModel user)
         {
             if (LoginService.LoginProcess(user.Id, user.Password))
-                return RedirectToAction("Index", "Home Page");
+                return RedirectToAction("Index", "Home");
             else
-                return RedirectToAction("Error", "Home");
+                return RedirectToAction("Index", "UserLogin");    
         }
     }
 }
