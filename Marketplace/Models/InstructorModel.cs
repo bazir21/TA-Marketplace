@@ -41,6 +41,6 @@ namespace Marketplace.Models
         //Bids not yet accepted or denied by admins. One to many
         public ICollection<BidModel> OutstandingBids { get; set; } */
 
-        public override String ToString() => JsonSerializer.Serialize<InstructorModel>(this);
+        public override String ToString() => firstName + " " + lastName;
     }
 }

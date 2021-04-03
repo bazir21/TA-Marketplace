@@ -35,6 +35,7 @@ namespace Marketplace
             services.AddTransient<JsonFileInstructor>();
             services.AddTransient<JsonFileModuleService>();
             services.AddTransient<BidService>();
+            services.AddTransient<InstructorService>();
             services.AddTransient<ModuleInstructorListService>();
         }
 
