@@ -13,6 +13,6 @@ namespace Marketplace.Models
         [Required]
         public short HoursBid { get; set; }
 
-        public bool Accepted { get; set; } = false;
+        public short Accepted { get; set; } = 0; // 0 is pending, 1 is accepted, 2 is rejected
     }
 }
