@@ -41,7 +41,7 @@
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> | *@
                 @* <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
                 @Html.ActionLink("Bid", "Create", "Bid", new { moduleId = item.Id })
-                @Html.ActionLink("Details", "Details", "Bid", new { moduleId = item.Id })
+                @Html.ActionLink("Details", "Details", "Module", new { moduleId = item.Id })
             </td>
         </tr>
 }
