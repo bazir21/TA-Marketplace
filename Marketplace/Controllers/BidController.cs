@@ -35,11 +35,6 @@ namespace Marketplace.Controllers
         [HttpPost]
         public IActionResult Create(BidModel bid)
         {
-            // Console.WriteLine(bid.Id);
-            // Console.WriteLine(bid.ModuleBiddedId);
-            // Console.WriteLine(bid.InstructorBidded);
-            // Console.WriteLine(bid.HoursBid);
-            // Console.WriteLine(bid.Accepted);
             int moduleId;
             if(TempData["module"] != null)
             {
@@ -58,7 +53,28 @@ namespace Marketplace.Controllers
             
             
             
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Instructor");
+        }
+
+        public IActionResult Edit(int bidId)
+        {
+            BidModel bidToEdit = BidService.getBidById(bidId);
+            // Console.WriteLine(bidToEdit.Id);
+            // Console.WriteLine(bidToEdit.HoursBid);
+            return View(bidToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(BidModel editedBid)
+        {
+            
+            BidService.EditBid(editedBid);
+            return RedirectToAction("Index", "Instructor");
+        }
+        public IActionResult Delete(int bidId)
+        {
+            BidService.DeleteBid(bidId);
+            return RedirectToAction("Index", "Instructor");
         }
 
 

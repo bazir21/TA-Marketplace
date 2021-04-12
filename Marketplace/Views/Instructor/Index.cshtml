@@ -1,0 +1,121 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Accepted Bids</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module
+            </th>
+            <th>
+                Academic Year
+            </th>
+            <th>
+                Hours Bid
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var bid in ViewBag.AcceptedBids)
+{       
+    <tr>
+            <td>
+                @bid.ModuleModelId
+            </td>
+            <td>
+                @bid.InstructorBidded
+            </td>
+            <td>
+                @bid.HoursBid
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <h1 class="display-4">RejectedBids</h1>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module
+            </th>
+            <th>
+                Academic Year
+            </th>
+            <th>
+                Hours Bid
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var bid in ViewBag.RejectedBids)
+{       
+    <tr>
+            <td>
+                @bid.ModuleModelId
+            </td>
+            <td>
+                @bid.InstructorBidded
+            </td>
+            <td>
+                @bid.HoursBid
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <h1 class="display-4">Pending Bids</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module
+            </th>
+            <th>
+                Academic Year
+            </th>
+            <th>
+                Hours Bid
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var bid in ViewBag.PendingBids)
+{       
+    <tr>
+            <td>
+                @bid.ModuleModelId
+            </td>
+            <td>
+                @bid.InstructorBidded
+            </td>
+            <td>
+                @bid.HoursBid
+            </td>
+            <td>
+            @Html.ActionLink("Edit", "Edit", "Bid", new {Id = bid.Id})
+            </td>
+            <td>
+            @Html.ActionLink("Delete", "Delete", "Bid", new {Id = bid.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

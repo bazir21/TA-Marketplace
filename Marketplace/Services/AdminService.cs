@@ -20,8 +20,7 @@ namespace Marketplace.Services
 
         /*public IEnumerable<ModuleModel> GetAllModulesWithBids()
         {
-            IEnumerable<ModuleModel> modules= null;
-            modules.ToList().Add
+            IEnumerable<ModuleModel> modules= db.Modules.ToList();
         }*/
     }
 }

@@ -1,0 +1,19 @@
+@model Marketplace.Models.UserModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form asp-action="UserLogin">
+    <div class="container">
+        <label asp-for="Email"><b>Email:</b></label>
+        <input type="email" placeholder="Enter Email" name="Email" required>
+
+        <label asp-for="Password"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" name="Password" required>
+
+        <button type="submit" value="UserLogin">Login</button>
+
+        <!--<label id="IncorrectCredentials" runat="server" style="color: red;">Incorrect Username/ Password</label>-->
+    </div>
+</form>
