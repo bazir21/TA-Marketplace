@@ -53,7 +53,7 @@ namespace Marketplace.Controllers
             
             
             
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Instructor");
         }
 
         public IActionResult Edit(int bidId)
