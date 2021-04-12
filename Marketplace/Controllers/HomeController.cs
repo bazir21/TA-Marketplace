@@ -36,6 +36,7 @@ namespace Marketplace.Controllers
 
         public IActionResult Privacy()
         {
+            
             return View(_context.Modules.ToList());
         }
 

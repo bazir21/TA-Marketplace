@@ -1,12 +1,80 @@
-@model List<ModuleModel>
+
+
+@model IEnumerable<Marketplace.Models.ModuleModel>    
 @{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-@foreach (var modele in Model)
-{
-    <h2>@modele.ModuleName</h2>
+<div class="text-center">
+    <h1 class="display-4">View your Modules and Pending Bids</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcademicYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bids)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{       
+    <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcademicYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                <style type='text/css'>
+                /* CSS to defines your number of messages */
+                .bidNotifs {
+                    display: inline-block;
+                    background: red;
+                    text-align: center;
+                    color: #FFF;
+                    border-radius: 50%;
+                    width: 24px;
+                    height: 24px;
+                    line-height: 26px;
+                    }
+                </style>
+
+                
+
+                <!-- currently links to create bid page needs to be updated to list of instructors/bids page -->
+                <div onclick="location.href='https://localhost:5001/Bid/Create?moduleId=1'" style="cursor: pointer;" id="UnreadBids" runat="server" class="bidNotifs">
+                  @GetUnreadMessages(@item.Id)  
+                </div>
+                
+            </td>
+        </tr>
 }
 
-<p>Use this page to detail your site's privacy policy.</p>
+@functions{
+    
+    public static string GetUnreadMessages(int moduleId)
+    {
+     // Get your unread messages (just like before)
+     
+        if(moduleId == 1){
+            return "1";
+        }
+        return "3";
+    }
+}
