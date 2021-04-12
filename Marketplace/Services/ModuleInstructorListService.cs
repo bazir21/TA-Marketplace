@@ -21,5 +21,10 @@ namespace Marketplace.Services
         {
             return db.Modules.ToList();
         }
+
+        public ModuleModel GetModuleById(int Id)
+        {
+            return this.db.Modules.Find(Id);
+        }
     }
 }

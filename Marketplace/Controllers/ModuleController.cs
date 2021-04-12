@@ -9,30 +9,20 @@ using Marketplace.Services;
 
 namespace Marketplace.Controllers
 {
-    public class InstructorModuleController : Controller
+    public class ModuleController : Controller
     {  
         public ModuleInstructorListService ModuleService;
         public IEnumerable<ModuleModel> Modules { get; private set; }
 
-        public InstructorModuleController(ModuleInstructorListService module)
+        public ModuleController(ModuleInstructorListService module)
         {
             ModuleService = module;
-        }
-        
-        public IActionResult Index()
-        {
-            Modules = ModuleService.GetModules();
-            return View(Modules);
         }
 
         public IActionResult Details(int moduleId)
         {
             ModuleModel module = ModuleService.GetModuleById(moduleId);
             return View(module);
-        }
-        public IActionResult Create(ModuleModel module)
-        {
-            return RedirectToAction("Create", "Bid", new { moduleId = module.Id });
         }
         
 
