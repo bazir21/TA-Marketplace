@@ -50,7 +50,7 @@ namespace Marketplace.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Administrators");
+                    b.ToTable("AdministratorModel");
                 });
 
             modelBuilder.Entity("Marketplace.Models.BidModel", b =>
@@ -65,19 +65,18 @@ namespace Marketplace.Migrations
                     b.Property<short>("HoursBid")
                         .HasColumnType("smallint");
 
-                    b.Property<int?>("InstructorBiddedId")
-                        .HasColumnType("int");
+                    b.Property<string>("InstructorBidded")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
-                    b.Property<int>("ModuleBiddedId")
+                    b.Property<int>("ModuleModelId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InstructorBiddedId");
+                    b.HasIndex("ModuleModelId");
 
-                    b.HasIndex("ModuleBiddedId");
-
-                    b.ToTable("Bids");
+                    b.ToTable("BidModel");
                 });
 
             modelBuilder.Entity("Marketplace.Models.InstructorModel", b =>
@@ -123,7 +122,7 @@ namespace Marketplace.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("InstructorModelList");
                 });
 
             modelBuilder.Entity("Marketplace.Models.ModuleModel", b =>
@@ -159,7 +158,26 @@ namespace Marketplace.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Modules");
+                    b.ToTable("modules");
+                });
+
+            modelBuilder.Entity("Marketplace.Models.UserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserModel");
                 });
 
             modelBuilder.Entity("AdministratorModelModuleModel", b =>
@@ -179,19 +197,11 @@ namespace Marketplace.Migrations
 
             modelBuilder.Entity("Marketplace.Models.BidModel", b =>
                 {
-                    b.HasOne("Marketplace.Models.InstructorModel", "InstructorBidded")
-                        .WithMany()
-                        .HasForeignKey("InstructorBiddedId");
-
-                    b.HasOne("Marketplace.Models.ModuleModel", "ModuleBidded")
+                    b.HasOne("Marketplace.Models.ModuleModel", null)
                         .WithMany("Bids")
-                        .HasForeignKey("ModuleBiddedId")
+                        .HasForeignKey("ModuleModelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("InstructorBidded");
-
-                    b.Navigation("ModuleBidded");
                 });
 
             modelBuilder.Entity("Marketplace.Models.InstructorModel", b =>

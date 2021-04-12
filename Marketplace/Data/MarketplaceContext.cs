@@ -13,6 +13,7 @@ namespace Marketplace.Data
         public DbSet<BidModel> Bids { get; set; }
         public DbSet<InstructorModelList> Instructors { get; set; }
         public DbSet<AdministratorModel> Administrators { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +21,7 @@ namespace Marketplace.Data
             modelBuilder.Entity<BidModel>().ToTable("BidModel");
             modelBuilder.Entity<InstructorModelList>().ToTable("InstructorModelList");
             modelBuilder.Entity<AdministratorModel>().ToTable("AdministratorModel");
+            modelBuilder.Entity<UserModel>().ToTable("UserModel");
         }
     }
 }
