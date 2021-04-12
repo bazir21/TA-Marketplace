@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Marketplace.Migrations
 {
-    public partial class CreateIdentityModels : Migration
+    public partial class Migrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Administrators",
+                name: "AdministratorModel",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,11 +18,11 @@ namespace Marketplace.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Administrators", x => x.Id);
+                    table.PrimaryKey("PK_AdministratorModel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Instructors",
+                name: "InstructorModelList",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -30,11 +30,11 @@ namespace Marketplace.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instructors", x => x.Id);
+                    table.PrimaryKey("PK_InstructorModelList", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Modules",
+                name: "modules",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -49,7 +49,7 @@ namespace Marketplace.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Modules", x => x.Id);
+                    table.PrimaryKey("PK_modules", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,15 +63,37 @@ namespace Marketplace.Migrations
                 {
                     table.PrimaryKey("PK_AdministratorModelModuleModel", x => new { x.LecturersId, x.ModulesId });
                     table.ForeignKey(
-                        name: "FK_AdministratorModelModuleModel_Administrators_LecturersId",
+                        name: "FK_AdministratorModelModuleModel_AdministratorModel_LecturersId",
                         column: x => x.LecturersId,
-                        principalTable: "Administrators",
+                        principalTable: "AdministratorModel",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AdministratorModelModuleModel_Modules_ModulesId",
+                        name: "FK_AdministratorModelModuleModel_modules_ModulesId",
                         column: x => x.ModulesId,
-                        principalTable: "Modules",
+                        principalTable: "modules",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BidModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ModuleModelId = table.Column<int>(type: "int", nullable: false),
+                    InstructorBidded = table.Column<string>(type: "longtext", nullable: false),
+                    HoursBid = table.Column<short>(type: "smallint", nullable: false),
+                    Accepted = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BidModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BidModel_modules_ModuleModelId",
+                        column: x => x.ModuleModelId,
+                        principalTable: "modules",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -92,45 +114,17 @@ namespace Marketplace.Migrations
                 {
                     table.PrimaryKey("PK_InstructorModel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InstructorModel_Instructors_InstructorModelListId",
+                        name: "FK_InstructorModel_InstructorModelList_InstructorModelListId",
                         column: x => x.InstructorModelListId,
-                        principalTable: "Instructors",
+                        principalTable: "InstructorModelList",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InstructorModel_Modules_ModuleModelId",
+                        name: "FK_InstructorModel_modules_ModuleModelId",
                         column: x => x.ModuleModelId,
-                        principalTable: "Modules",
+                        principalTable: "modules",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Bids",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ModuleBiddedId = table.Column<int>(type: "int", nullable: false),
-                    InstructorBiddedId = table.Column<int>(type: "int", nullable: true),
-                    HoursBid = table.Column<short>(type: "smallint", nullable: false),
-                    Accepted = table.Column<bool>(type: "tinyint(1)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bids", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Bids_InstructorModel_InstructorBiddedId",
-                        column: x => x.InstructorBiddedId,
-                        principalTable: "InstructorModel",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Bids_Modules_ModuleBiddedId",
-                        column: x => x.ModuleBiddedId,
-                        principalTable: "Modules",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -139,14 +133,9 @@ namespace Marketplace.Migrations
                 column: "ModulesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bids_InstructorBiddedId",
-                table: "Bids",
-                column: "InstructorBiddedId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bids_ModuleBiddedId",
-                table: "Bids",
-                column: "ModuleBiddedId");
+                name: "IX_BidModel_ModuleModelId",
+                table: "BidModel",
+                column: "ModuleModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InstructorModel_InstructorModelListId",
@@ -165,19 +154,19 @@ namespace Marketplace.Migrations
                 name: "AdministratorModelModuleModel");
 
             migrationBuilder.DropTable(
-                name: "Bids");
-
-            migrationBuilder.DropTable(
-                name: "Administrators");
+                name: "BidModel");
 
             migrationBuilder.DropTable(
                 name: "InstructorModel");
 
             migrationBuilder.DropTable(
-                name: "Instructors");
+                name: "AdministratorModel");
 
             migrationBuilder.DropTable(
-                name: "Modules");
+                name: "InstructorModelList");
+
+            migrationBuilder.DropTable(
+                name: "modules");
         }
     }
 }
