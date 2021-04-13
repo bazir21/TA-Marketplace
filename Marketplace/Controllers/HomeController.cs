@@ -40,8 +40,7 @@ namespace Marketplace.Controllers
 
         public IActionResult Administrator()
         {
-            Instructors = InstructorService.GetInstructors();
-            return View(Instructors);
+            return View();
         }
 
         public IActionResult Login()
@@ -51,7 +50,6 @@ namespace Marketplace.Controllers
 
          public IActionResult Instructor()
         {
-            
             return View();
         }
 

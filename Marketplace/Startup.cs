@@ -37,11 +37,8 @@ namespace Marketplace
             services.AddTransient<BidService>();
             services.AddTransient<InstructorService>();
             services.AddTransient<ModuleInstructorListService>();
-<<<<<<< HEAD
             services.AddTransient<AdminService>();
-=======
             services.AddTransient<LoginService>();
->>>>>>> 5524b38ebc77b22773baf307ef2409cad512eeb2
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

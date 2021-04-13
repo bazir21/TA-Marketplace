@@ -14,13 +14,48 @@ namespace Marketplace.Controllers
     {  
         public AdminService AdminService;
 
-        public AdminController(AdminService admin)
+        public AdminController(AdminService AdminService)
         {
-            AdminService = admin;
+            this.AdminService = AdminService;
         }
         
         public IActionResult Index()
         {
+            ViewBag.ActiveBids= AdminService.GetModulesWithBids();
+            ViewBag.ViewInstructors= AdminService.ViewInstructors();
+            ViewBag.ViewModules= AdminService.ViewModules();
+            return View();
+        }
+
+        public IActionResult EditInstructor(int InstructorId)
+        {
+            InstructorModel instructorToEdit= AdminService.GetInstructorById(InstructorId);
+            return View(instructorToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult EditInstructor(InstructorModel InstructorToEdit)
+        {
+            AdminService.EditInstructor(InstructorToEdit);
+            return RedirectToAction("Index", "Admin");
+        }
+
+        public IActionResult EditModule(int ModuleId)
+        {
+            ModuleModel moduleToEdit= AdminService.GetModuleById(ModuleId);
+            return View(moduleToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult EditModule(ModuleModel ModuleToEdit)
+        {
+            AdminService.EditModule(ModuleToEdit);
+            return RedirectToAction("Index", "Admin");
+        }
+
+        public IActionResult ViewBidders(int ModuleId)
+        {
+            ViewBag.ViewBidders= AdminService.GetInstructorsThatBid(ModuleId);
             return View();
         }
     }
