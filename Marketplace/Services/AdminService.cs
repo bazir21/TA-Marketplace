@@ -73,5 +73,15 @@ namespace Marketplace.Services
         {
             return db.Bids.Where(b => b.ModuleModelId.Equals(id)).ToList();
         }
+
+        public Dictionary<int, string> GetAmountOfBids()
+        {
+            Dictionary<int, string> bidCount= new Dictionary<int, string>();
+            /*foreach(var module in db.Modules)
+            {
+                bidCount.Add(module.Id, db.Bids.Where(b => b.ModuleModelId.Equals(module.Id)).Count().ToString());
+            }*/
+            return bidCount;
+        }
     }
 }

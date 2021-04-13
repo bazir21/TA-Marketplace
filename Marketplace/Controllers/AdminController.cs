@@ -23,6 +23,7 @@ namespace Marketplace.Controllers
         {
             ViewBag.ActiveBids= AdminService.GetModulesWithBids();
             ViewBag.ViewInstructors= AdminService.ViewInstructors();
+            ViewBag.AmountOfBids= AdminService.GetAmountOfBids();
             ViewBag.ViewModules= AdminService.ViewModules();
             return View();
         }
