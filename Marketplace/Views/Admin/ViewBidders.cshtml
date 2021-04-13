@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "View";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p>
+                <table class="table"> 
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>Module Id</p>
+                            </th>
+                            <th>
+                                <p>Instructor Name</p>
+                            </th>
+                            <th>
+                                <p>Hours Bid</p>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+@foreach (var instructor in ViewBag.ViewBidders){
+                        <tr>
+                            <td>
+                                @instructor.Id
+                            </td>
+                            <td>
+                                @instructor.InstructorBidded
+                            </td>
+                            <td>
+                                @instructor.HoursBid
+                            </td>
+                        </tr>
+}
+                    </tbody>
+                </table>
+            </p>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Return</a>
+</div>

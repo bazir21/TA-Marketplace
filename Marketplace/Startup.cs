@@ -37,6 +37,7 @@ namespace Marketplace
             services.AddTransient<BidService>();
             services.AddTransient<InstructorService>();
             services.AddTransient<ModuleInstructorListService>();
+            services.AddTransient<AdminService>();
             services.AddTransient<LoginService>();
         }
 
