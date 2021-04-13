@@ -29,7 +29,6 @@ namespace Marketplace.Controllers
         public IActionResult Create(int moduleId)
         {
             TempData["module"] = moduleId;
-            Console.WriteLine(moduleId);
             return View();
         }
         [HttpPost]
@@ -59,8 +58,6 @@ namespace Marketplace.Controllers
         public IActionResult Edit(int bidId)
         {
             BidModel bidToEdit = BidService.getBidById(bidId);
-            // Console.WriteLine(bidToEdit.Id);
-            // Console.WriteLine(bidToEdit.HoursBid);
             return View(bidToEdit);
         }
 

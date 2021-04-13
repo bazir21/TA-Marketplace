@@ -36,7 +36,7 @@ namespace Marketplace.Services
 
         public void EditBid(BidModel bid)
         {
-            BidModel oldBid = this.db.Bids.Find(bid.Id + 1);
+            BidModel oldBid = this.db.Bids.Find(bid.Id);
             this.db.Bids.Update(oldBid);
             oldBid.HoursBid = bid.HoursBid;
             this.db.SaveChanges();
@@ -44,7 +44,7 @@ namespace Marketplace.Services
 
         public void DeleteBid(int bidId)
         {
-            BidModel bidToRemove = this.db.Bids.Find(bidId + 1);
+            BidModel bidToRemove = this.db.Bids.Find(bidId);
             this.db.Bids.Remove(bidToRemove);
             this.db.SaveChanges();
         }
