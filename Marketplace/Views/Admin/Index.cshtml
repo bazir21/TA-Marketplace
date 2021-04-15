@@ -82,18 +82,20 @@
                                 }
                             </style>
 
-                            <div style="cursor: pointer;" id="UnreadBids" runat="server" class="bidNotifs">
-                                @{
-                                    string bids= "0";
-                                    string value;
-                                    if(ViewBag.AmountOfBids.TryGetValue(@module.Id, out value))
-                                    {
-                                        bids= value;
-                                    }
+                            @{
+                                string bids= "0";
+                                string value;
+                                if(ViewBag.AmountOfBids.TryGetValue(@module.Id, out value))
+                                {
+                                    bids= value;
                                 }
-                                
-                                @Html.ActionLink(@bids, "ViewBidders", "Admin", new {ModuleId = module.Id})
-                            </div>
+                                if(!bids.Equals("0"))
+                                {
+                                    <div style="cursor: pointer;" id="UnreadBids" runat="server" class="bidNotifs">
+                                        @Html.ActionLink(@bids, "ViewBidders", "Admin", new {ModuleId = module.Id})
+                                    </div>
+                                }
+                            }
                         </td>
                     </tr> 
 }
@@ -152,16 +154,4 @@ function openTab(evt, tabName) {
     evt.currentTarget.className+= " w3-red";
 }
 </script>
-
-@functions{
-    public static string GetUnreadMessages(int moduleId)
-    {
-     // Get your unread messages (just like before)
-     
-        if(moduleId == 1){
-            return "1";
-        }
-        return "3";
-    }
-}
 </body>
