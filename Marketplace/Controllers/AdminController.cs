@@ -59,5 +59,17 @@ namespace Marketplace.Controllers
             ViewBag.ViewBidders= AdminService.GetInstructorsThatBid(ModuleId);
             return View();
         }
+
+        public IActionResult AcceptBid(int BidId)
+        {
+            AdminService.AcceptBid(BidId);
+            return RedirectToAction("Index", "Admin");
+        }
+
+        public IActionResult DenyBid(int BidId)
+        {
+            AdminService.DenyBid(BidId);
+            return RedirectToAction("Index", "Admin");
+        }
     }
 }
