@@ -1,1 +1,0 @@
-SELECT COUNT(Id) FROM bids;

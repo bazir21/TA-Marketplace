@@ -35,6 +35,12 @@
                             <td>
                                 @instructor.HoursBid
                             </td>
+                            <td class="text-right" style="font-size:15px">
+                                @Html.ActionLink("Accept", "AcceptBid", "Admin", new {BidId = instructor.Id})
+                            </td>
+                            <td class="text-right" style="font-size:15px">
+                                @Html.ActionLink("Deny", "DenyBid", "Admin", new {BidId = instructor.Id})
+                            </td>
                         </tr>
 }
                     </tbody>

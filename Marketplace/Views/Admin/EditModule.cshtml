@@ -7,27 +7,34 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <tr>
+            <th>
+                <h4>Constraints for @Model.ModuleName (@Model.ModuleCode)</h4>
+            </th>
+            <th></th>
+        </tr>
+        <hr></hr>
         <form asp-action="EditModule">
             @Html.HiddenFor(model => model.Id)
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="MaxHoursPerInstructor" class="control-label"></label>
+                <label asp-for="MaxHoursPerInstructor" class="control-label">Max Hours Per Instructor</label>
                 <input asp-for="MaxHoursPerInstructor" class="form-control" />
                 <span asp-validation-for="MaxHoursPerInstructor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MinHoursPerInstructor" class="control-label"></label>
+                <label asp-for="MinHoursPerInstructor" class="control-label">Minimum Hours Per Instructor</label>
                 <input asp-for="MinHoursPerInstructor" class="form-control" />
                 <span asp-validation-for="MinHoursPerInstructor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TotalHoursAvailable" class="control-label"></label>
+                <label asp-for="TotalHoursAvailable" class="control-label">Total Hours Available</label>
                 <input asp-for="TotalHoursAvailable" class="form-control" />
                 <span asp-validation-for="TotalHoursAvailable" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            </div>   
         </form>
     </div>
 </div>

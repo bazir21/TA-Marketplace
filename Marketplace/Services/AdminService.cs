@@ -71,7 +71,7 @@ namespace Marketplace.Services
 
         public IEnumerable<BidModel> GetInstructorsThatBid(int id)
         {
-            return db.Bids.Where(b => b.ModuleModelId.Equals(id)).ToList();
+            return db.Bids.Where(b => (b.ModuleModelId.Equals(id)) && (b.Accepted.Equals(0))).ToList();
         }
 
         public Dictionary<int, string> GetAmountOfBids()
@@ -80,9 +80,25 @@ namespace Marketplace.Services
             IEnumerable<ModuleModel> modules= GetModulesWithBids();
             foreach(var module in modules)
             {
-                bidCount.Add(module.Id, db.Bids.Where(b => b.ModuleModelId.Equals(module.Id)).Count().ToString());
+                bidCount.Add(module.Id, db.Bids.Where(b => (b.ModuleModelId.Equals(module.Id)) && (b.Accepted.Equals(0))).Count().ToString());
             }
             return bidCount;
+        }
+
+        public void AcceptBid(int id)
+        {
+            BidModel oldBid = this.db.Bids.Find(id);
+            this.db.Bids.Update(oldBid); 
+            oldBid.Accepted = 1;    
+            this.db.SaveChanges();
+        }
+
+        public void DenyBid(int id)
+        {
+            BidModel oldBid = this.db.Bids.Find(id);
+            this.db.Bids.Update(oldBid); 
+            oldBid.Accepted = 2;    
+            this.db.SaveChanges();
         }
     }
 }
