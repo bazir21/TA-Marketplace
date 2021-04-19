@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System;
 
 namespace Marketplace.Controllers
 {
+    [Authorize(Policy = "RequireElevatedRole")]
     public class AdminController : Controller
     {  
         public AdminService AdminService;
@@ -27,7 +29,7 @@ namespace Marketplace.Controllers
             ViewBag.ViewModules= AdminService.ViewModules();
             return View();
         }
-
+        [Authorize(Policy = "RequireAdministratorRole")]
         public IActionResult EditInstructor(int InstructorId)
         {
             InstructorModel instructorToEdit= AdminService.GetInstructorById(InstructorId);

@@ -20,19 +20,19 @@ namespace Marketplace.Services
 
         public IEnumerable<BidModel> GetPendingBids(string instructor)
         {
-            return db.Bids.Where(b => (b.InstructorBidded.Equals(instructor) && (b.Accepted.Equals(0))))
+            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructor) && (b.Accepted.Equals(0))))
             .ToList();
         }
 
         public IEnumerable<BidModel> GetAcceptedBids(string instructor)
         {
-            return db.Bids.Where(b => (b.InstructorBidded.Equals(instructor) && (b.Accepted.Equals(1))))
+            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructor) && (b.Accepted.Equals(1))))
             .ToList();
         }
 
         public IEnumerable<BidModel> GetRejectedBids(string instructor)
         {
-            return db.Bids.Where(b => (b.InstructorBidded.Equals(instructor) && (b.Accepted.Equals(2))))
+            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructor) && (b.Accepted.Equals(2))))
             .ToList();
         }
     }

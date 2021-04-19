@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System;
 
 namespace Marketplace.Controllers
 {
+    [Authorize(Policy = "RequireInstructorRole")]
     public class InstructorController : Controller
     {  
         public InstructorService InstructorService;

@@ -89,7 +89,7 @@ namespace Marketplace.Services
         {
             BidModel oldBid = this.db.Bids.Find(id);
             this.db.Bids.Update(oldBid); 
-            oldBid.Accepted = 1;    
+            oldBid.Accepted = BidStatus.Accepted;    
             this.db.SaveChanges();
         }
 
@@ -97,7 +97,7 @@ namespace Marketplace.Services
         {
             BidModel oldBid = this.db.Bids.Find(id);
             this.db.Bids.Update(oldBid); 
-            oldBid.Accepted = 2;    
+            oldBid.Accepted = BidStatus.Rejected;    
             this.db.SaveChanges();
         }
     }
