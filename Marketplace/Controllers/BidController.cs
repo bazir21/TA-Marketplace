@@ -54,7 +54,7 @@ namespace Marketplace.Controllers
 
             bid.ModuleModelId = moduleId;  
             bid.InstructorBiddedId = user.Id;
-            
+            bid.InstructorBidded = user.Name;
             BidService.CreateBid(bid);
             
             
