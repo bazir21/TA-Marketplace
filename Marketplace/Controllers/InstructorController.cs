@@ -27,6 +27,7 @@ namespace Marketplace.Controllers
         
         public async Task<IActionResult> Index()
         {
+            //List bids created by user
             var user = await _userManager.GetUserAsync(User);
             Console.WriteLine("User Id is : " + user.Id);
             ViewBag.AcceptedBids = InstructorService.GetAcceptedBids(user.Id);
