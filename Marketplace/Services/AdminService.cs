@@ -66,6 +66,7 @@ namespace Marketplace.Services
             oldModule.MaxHoursPerInstructor= module.MaxHoursPerInstructor;
             oldModule.MinHoursPerInstructor= module.MinHoursPerInstructor;
             oldModule.TotalHoursAvailable= module.TotalHoursAvailable;
+    
             this.db.SaveChanges();
         }
 
@@ -85,9 +86,18 @@ namespace Marketplace.Services
             return bidCount;
         }
 
+        
+
         public void AcceptBid(int id)
         {
             BidModel oldBid = this.db.Bids.Find(id);
+            ModuleModel currentModule = GetModuleById(oldBid.ModuleModelId);
+          
+            this.db.Bids.Update(oldBid); 
+            oldBid.Accepted = 1;
+            currentModule.HoursFilled+=oldBid.HoursBid;
+            this.db.SaveChanges();
+        
             this.db.Bids.Update(oldBid); 
             oldBid.Accepted = BidStatus.Accepted;    
             this.db.SaveChanges();
