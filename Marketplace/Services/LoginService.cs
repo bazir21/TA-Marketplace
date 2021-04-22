@@ -21,7 +21,7 @@ namespace Marketplace.Services
         public bool LoginProcess(string strEmail, string strPassword)
         {
             bool validation= false;
-            UserModel currentUser= db.Users.FirstOrDefault(user=>user.Email.Equals(strEmail));
+            UserModel currentUser= db.Users.FirstOrDefault(user=>user.TCDEmail.Equals(strEmail));
             
             if(currentUser!=null)
             {

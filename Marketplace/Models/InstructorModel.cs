@@ -23,8 +23,7 @@ namespace Marketplace.Models
 
         [Required]
         [EmailAddress]
-        [JsonPropertyName("emailTCD")]
-        private string TCDEmail { get; set; }
+        public string TCDEmail { get; set; }
         /* public short minHoursAllowedSemesterOne { get; set; }
         public short maxHoursAllowedSemesterOne { get; set; }
 

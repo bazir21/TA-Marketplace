@@ -33,10 +33,14 @@ namespace Marketplace.Controllers
         [HttpPost]
         public IActionResult UserLogin(UserModel user)
         {
-            if (LoginService.LoginProcess(user.Email, user.Password))
+            if (LoginService.LoginProcess(user.TCDEmail, user.Password))
+            {
                 return RedirectToAction("Index", "Home");
+            }
             else
-                return RedirectToAction("Index", "UserLogin");    
+            {
+                return RedirectToAction("Index", "UserLogin");
+            }    
         }
     }
 }

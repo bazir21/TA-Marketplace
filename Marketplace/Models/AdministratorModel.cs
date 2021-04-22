@@ -13,6 +13,9 @@ namespace Marketplace.Models
         [Required]
         [StringLength(50)]
         public string Surname { get; set; }
+        [Required]
+        [EmailAddress]
+        public string TCDEmail { get; set; }
         public ICollection<ModuleModel> Modules { get; set; }
         //TODO: Permissions
     }

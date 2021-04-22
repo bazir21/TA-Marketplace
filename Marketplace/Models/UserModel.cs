@@ -7,7 +7,8 @@ namespace Marketplace.Models
     {
         public int Id { get; set; }
         [Required]
-        public string Email { get; set; }
+        [EmailAddress]
+        public string TCDEmail { get; set; }
         [Required]
         public string Password { get; set; }
     }
