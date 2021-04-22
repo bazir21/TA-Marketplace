@@ -15,7 +15,7 @@ using System;
 
 namespace Marketplace.Controllers
 {
-    // [Authorize(Roles="Administrator,Lecturer")]
+    [Authorize(Policy="RequireElevatedRole")]
     public class AdminController : Controller
     {  
         public AdminService AdminService;
@@ -101,6 +101,7 @@ namespace Marketplace.Controllers
                 var user = new AdministratorModel { Email = model.Email, Name = model.Name };
                 user.UserName = model.Email;
                 var result = await _userManager.CreateAsync(user, model.Password);
+                await _userManager.AddToRoleAsync(user, "AdministratorRole");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
@@ -130,7 +131,7 @@ namespace Marketplace.Controllers
         }
 
 
-        // [Authorize(Roles = "Administrator")]
+        [Authorize(Policy="RequireAdministratorRole")]
         public IActionResult EditInstructor(string InstructorId)
         {
             InstructorModel instructorToEdit= AdminService.GetInstructorById(InstructorId);

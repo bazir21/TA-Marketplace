@@ -103,6 +103,7 @@ namespace Marketplace.Controllers
                 var user = new InstructorModel { Email = model.Email, Name = model.Name };
                 user.UserName = model.Email;
                 var result = await _userManager.CreateAsync(user, model.Password);
+                await _userManager.AddToRoleAsync(user, "InstructorRole");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

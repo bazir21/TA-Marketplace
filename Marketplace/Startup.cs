@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,7 +47,6 @@ namespace Marketplace
             services.AddTransient<AdminService>();
             services.AddTransient<LoginService>();
             services.AddTransient<UserService>();
-
 
             //Authentication
             // services.AddDefaultIdentity<IdentityUser>(options =>
@@ -99,8 +99,6 @@ namespace Marketplace
                     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
                     options.SlidingExpiration = true;
                 });
-
-
             //Authorization
             services.AddAuthorization(options =>
             {
