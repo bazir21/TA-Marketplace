@@ -13,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Marketplace.Services;
 using Marketplace.Data;
+using Marketplace.Models;
+using Marketplace.Roles;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
@@ -33,6 +35,7 @@ namespace Marketplace
             services.AddDbContext<MarketplaceContext>(options => 
                     options.UseMySql(Configuration.GetConnectionString("MarketplaceConnection"), new MariaDbServerVersion(new Version(10, 5, 9)),
                         mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend)));
+
             services.AddDatabaseDeveloperPageExceptionFilter(); //The AddDatabaseDeveloperPageExceptionFilter provides helpful error information in the development environment.
             services.AddControllersWithViews();
             services.AddTransient<JsonFileInstructor>();
@@ -42,12 +45,27 @@ namespace Marketplace
             services.AddTransient<ModuleInstructorListService>();
             services.AddTransient<AdminService>();
             services.AddTransient<LoginService>();
+            services.AddTransient<UserService>();
 
 
             //Authentication
-            services.AddDefaultIdentity<IdentityUser>(options =>
-                options.SignIn.RequireConfirmedAccount = true)
-                .AddRoles<IdentityRole>()
+            // services.AddDefaultIdentity<IdentityUser>(options =>
+            //     options.SignIn.RequireConfirmedAccount = true)
+            //     .AddRoles<IdentityRole>()
+            //     .AddEntityFrameworkStores<MarketplaceContext>();
+                
+                services.AddIdentity<UserModel, IdentityRole>()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<MarketplaceContext>();
+                
+                services.AddIdentityCore<InstructorModel>()
+                .AddDefaultTokenProviders()
+                .AddRoles<InstructorRole>()
+                .AddEntityFrameworkStores<MarketplaceContext>();
+
+                services.AddIdentityCore<AdministratorModel>()
+                .AddDefaultTokenProviders()
+                .AddRoles<AdministratorRole>()
                 .AddEntityFrameworkStores<MarketplaceContext>();
 
                 services.Configure<IdentityOptions>(options =>
@@ -68,7 +86,7 @@ namespace Marketplace
                     // User settings.
                     options.User.AllowedUserNameCharacters =
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-                    options.User.RequireUniqueEmail = false;
+                    options.User.RequireUniqueEmail = true;
                 });
 
                 services.ConfigureApplicationCookie(options =>
@@ -87,17 +105,17 @@ namespace Marketplace
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("RequireAdministratorRole",
-                    policy=> policy.RequireRole("Administrator"));
+                    policy=> policy.RequireRole("AdministratorRole"));
                 
-                options.AddPolicy("ElevatedRights",
-                    policy=> policy.RequireRole("Administrator", "Lecturer")); //Foundation for lecturer rights
+                options.AddPolicy("RequireElevatedRole",
+                    policy=> policy.RequireRole("AdministratorRole", "Lecturer")); //Foundation for lecturer rights
 
                 options.AddPolicy("RequireInstructorRole",
-                    policy=> policy.RequireRole("Instructor"));
+                    policy=> policy.RequireRole("InstructorRole"));
 
-                options.FallbackPolicy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
+                // options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                //     .RequireAuthenticatedUser()
+                //     .Build();
             });
         }
 

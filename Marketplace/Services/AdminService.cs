@@ -18,7 +18,7 @@ namespace Marketplace.Services
             this.db = db;
         }
 
-        public InstructorModel GetInstructorById(int Id)
+        public InstructorModel GetInstructorById(string Id)
         {
             return db.Instructor.Find(Id);
         }

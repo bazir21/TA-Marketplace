@@ -1,9 +1,10 @@
 using Marketplace.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace Marketplace.Data
 {
-    public class MarketplaceContext : DbContext
+    public class MarketplaceContext : IdentityDbContext<UserModel>
     {
         public MarketplaceContext(DbContextOptions<MarketplaceContext> options) : base(options)
         {
@@ -14,16 +15,19 @@ namespace Marketplace.Data
         public DbSet<InstructorModelList> Instructors { get; set; }
         public DbSet<InstructorModel> Instructor { get; set; }
         public DbSet<AdministratorModel> Administrators { get; set; }
-        public DbSet<UserModel> Users { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ModuleModel>().ToTable("modules");
-            modelBuilder.Entity<BidModel>().ToTable("BidModel");
-            modelBuilder.Entity<InstructorModelList>().ToTable("InstructorModelList");
-            modelBuilder.Entity<InstructorModel>().ToTable("InstructorModel");
-            modelBuilder.Entity<AdministratorModel>().ToTable("AdministratorModel");
-            modelBuilder.Entity<UserModel>().ToTable("UserModel");
+            base.OnModelCreating(modelBuilder);
+            // modelBuilder.Entity<ModuleModel>().ToTable("modules");
+            // modelBuilder.Entity<BidModel>().ToTable("BidModel");
+            // modelBuilder.Entity<InstructorModelList>().ToTable("InstructorModelList");
+            // modelBuilder.Entity<InstructorModel>().HasKey(user => user.Id);
+            // modelBuilder.Entity<InstructorModel>().ToTable("InstructorModel");
+            // modelBuilder.Entity<AdministratorModel>().HasKey(admin => admin.Id);
+            // modelBuilder.Entity<AdministratorModel>().ToTable("AdministratorModel");
+            
         }
     }
 }

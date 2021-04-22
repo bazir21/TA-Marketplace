@@ -18,21 +18,21 @@ namespace Marketplace.Services
             this.db = db;
         }
 
-        public IEnumerable<BidModel> GetPendingBids(string instructor)
+        public IEnumerable<BidModel> GetPendingBids(string instructorId)
         {
-            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructor) && (b.Accepted.Equals(0))))
+            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructorId) && (b.Accepted.Equals(BidStatus.Pending))))
             .ToList();
         }
 
-        public IEnumerable<BidModel> GetAcceptedBids(string instructor)
+        public IEnumerable<BidModel> GetAcceptedBids(string instructorId)
         {
-            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructor) && (b.Accepted.Equals(1))))
+            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructorId) && (b.Accepted.Equals(BidStatus.Accepted))))
             .ToList();
         }
 
-        public IEnumerable<BidModel> GetRejectedBids(string instructor)
+        public IEnumerable<BidModel> GetRejectedBids(string instructorId)
         {
-            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructor) && (b.Accepted.Equals(2))))
+            return db.Bids.Where(b => (b.InstructorBiddedId.Equals(instructorId) && (b.Accepted.Equals(BidStatus.Rejected))))
             .ToList();
         }
     }

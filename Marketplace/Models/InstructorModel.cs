@@ -3,20 +3,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.AspNetCore.Identity; 
+using Marketplace.Roles;
 
 namespace Marketplace.Models
 {
-    public class InstructorModel
+    public class InstructorModel : UserModel
     {
-        public int Id { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string firstName { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string lastName { get; set; }
 
         [StringLength(5)]
         public string Level { get; set; }
@@ -25,6 +18,8 @@ namespace Marketplace.Models
         [EmailAddress]
         [JsonPropertyName("emailTCD")]
         private string TCDEmail { get; set; }
+
+        public InstructorRole role { get; set; }
         /* public short minHoursAllowedSemesterOne { get; set; }
         public short maxHoursAllowedSemesterOne { get; set; }
 
@@ -41,6 +36,6 @@ namespace Marketplace.Models
         //Bids not yet accepted or denied by admins. One to many
         public ICollection<BidModel> OutstandingBids { get; set; } */
 
-        public override String ToString() => firstName + " " + lastName;
+        public override String ToString() => Name;
     }
 }
