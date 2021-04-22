@@ -9,6 +9,8 @@ namespace Marketplace.Models
         public int ModuleModelId { get; set; }
         [Required]
         public string InstructorBiddedId { get; set; }
+        [Required]
+        public string InstructorBidded { get; set; }
         //Should try and set default to ModuleMinimum, but can't figure out how
         [Required]
         public short HoursBid { get; set; }
