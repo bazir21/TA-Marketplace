@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -10,14 +12,18 @@ using System;
 
 namespace Marketplace.Controllers
 {
+    [Authorize]
     public class BidController : Controller
     {  
         public BidService BidService;
         public IEnumerable<BidModel> Bids { get; private set; }
 
-        public BidController(BidService bid)
+        private readonly UserManager<InstructorModel> _userManager;
+
+        public BidController(BidService bid, UserManager<InstructorModel> userManager)
         {
             BidService = bid;
+            _userManager = userManager;
         }
         
         public IActionResult Index()
@@ -32,9 +38,10 @@ namespace Marketplace.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(BidModel bid)
+        public async Task<IActionResult> Create(BidModel bid)
         {
             int moduleId;
+            var user = await _userManager.GetUserAsync(User);
             if(TempData["module"] != null)
             {
                 moduleId = (int)TempData["module"];
@@ -46,7 +53,7 @@ namespace Marketplace.Controllers
             }
 
             bid.ModuleModelId = moduleId;  
-            
+            bid.InstructorBiddedId = user.Id;
             
             BidService.CreateBid(bid);
             

@@ -18,7 +18,7 @@ namespace Marketplace.Services
             this.db = db;
         }
 
-        public InstructorModel GetInstructorById(int Id)
+        public InstructorModel GetInstructorById(string Id)
         {
             return db.Instructor.Find(Id);
         }
@@ -92,19 +92,22 @@ namespace Marketplace.Services
         {
             BidModel oldBid = this.db.Bids.Find(id);
             ModuleModel currentModule = GetModuleById(oldBid.ModuleModelId);
-           
-                this.db.Bids.Update(oldBid); 
-                oldBid.Accepted = 1;
-                currentModule.HoursFilled+=oldBid.HoursBid;
-                this.db.SaveChanges();
-            
+          
+            this.db.Bids.Update(oldBid); 
+            oldBid.Accepted = 1;
+            currentModule.HoursFilled+=oldBid.HoursBid;
+            this.db.SaveChanges();
+        
+            this.db.Bids.Update(oldBid); 
+            oldBid.Accepted = BidStatus.Accepted;    
+            this.db.SaveChanges();
         }
 
         public void DenyBid(int id)
         {
             BidModel oldBid = this.db.Bids.Find(id);
             this.db.Bids.Update(oldBid); 
-            oldBid.Accepted = 2;    
+            oldBid.Accepted = BidStatus.Rejected;    
             this.db.SaveChanges();
         }
     }

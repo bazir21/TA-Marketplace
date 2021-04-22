@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using Marketplace.Services;
 
 namespace Marketplace.Controllers
 {
+    
     public class InstructorModuleController : Controller
     {  
         public ModuleInstructorListService ModuleService;
@@ -30,6 +32,7 @@ namespace Marketplace.Controllers
             ModuleModel module = ModuleService.GetModuleById(moduleId);
             return View(module);
         }
+        [Authorize]
         public IActionResult Create(ModuleModel module)
         {
             return RedirectToAction("Create", "Bid", new { moduleId = module.Id });

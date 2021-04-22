@@ -21,15 +21,15 @@ namespace Marketplace.Services
         public bool LoginProcess(string strEmail, string strPassword)
         {
             bool validation= false;
-            UserModel currentUser= db.Users.FirstOrDefault(user=>user.Email.Equals(strEmail));
+            // UserModel currentUser= db.Users.FirstOrDefault(user=>user.Email.Equals(strEmail));
             
-            if(currentUser!=null)
-            {
-                if(currentUser.Password.Equals(strPassword))
-                    validation= true;
-                else 
-                    validation= false;
-            }
+            // if(currentUser!=null)
+            // {
+            //     if(currentUser.Password.Equals(strPassword))
+            //         validation= true;
+            //     else 
+            //         validation= false;
+            // }
             return validation;
         }
     }
