@@ -15,7 +15,7 @@ using System;
 
 namespace Marketplace.Controllers
 {
-    [Authorize(Roles="Administrator,Lecturer")]
+    // [Authorize(Roles="Administrator,Lecturer")]
     public class AdminController : Controller
     {  
         public AdminService AdminService;
@@ -130,7 +130,7 @@ namespace Marketplace.Controllers
         }
 
 
-        [Authorize(Roles = "Administrator")]
+        // [Authorize(Roles = "Administrator")]
         public IActionResult EditInstructor(string InstructorId)
         {
             InstructorModel instructorToEdit= AdminService.GetInstructorById(InstructorId);
