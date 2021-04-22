@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 
 namespace Marketplace.Controllers
 {
+    //Controller for registering, logging in, and logging out Instructor users
     [Authorize]
     [Route("[controller]/[action]")]
     public class AccountController : Controller

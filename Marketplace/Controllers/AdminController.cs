@@ -97,7 +97,7 @@ namespace Marketplace.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                //User email is used as username rather than user's own name
                 var user = new AdministratorModel { Email = model.Email, Name = model.Name };
                 user.UserName = model.Email;
                 var result = await _userManager.CreateAsync(user, model.Password);
