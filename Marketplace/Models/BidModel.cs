@@ -8,11 +8,18 @@ namespace Marketplace.Models
         [Required]
         public int ModuleModelId { get; set; }
         [Required]
-        public string InstructorBidded { get; set; }
+        public string InstructorBiddedId { get; set; }
         //Should try and set default to ModuleMinimum, but can't figure out how
         [Required]
         public short HoursBid { get; set; }
 
-        public short Accepted { get; set; } = 0; // 0 is pending, 1 is accepted, 2 is rejected
+        public BidStatus Accepted { get; set; } = 0; // 0 is pending, 1 is accepted, 2 is rejected
+    }
+
+    public enum BidStatus
+    {
+        Pending,
+        Accepted,
+        Rejected
     }
 }
