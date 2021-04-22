@@ -48,7 +48,7 @@ namespace Marketplace.Services
 
         public IEnumerable<BidModel> GetActiveBids(ModuleModel module)
         {
-            return db.Bids.Where(b => (b.Accepted.Equals(0)) && (b.ModuleModelId.Equals(module.Id))).ToList();
+            return db.Bids.Where(b => (b.Accepted.Equals(BidStatus.Pending)) && (b.ModuleModelId.Equals(module.Id))).ToList();
         }
 
         public void EditInstructor(InstructorModel instructor)
@@ -72,7 +72,7 @@ namespace Marketplace.Services
 
         public IEnumerable<BidModel> GetInstructorsThatBid(int id)
         {
-            return db.Bids.Where(b => (b.ModuleModelId.Equals(id)) && (b.Accepted.Equals(0))).ToList();
+            return db.Bids.Where(b => (b.ModuleModelId.Equals(id)) && (b.Accepted.Equals(BidStatus.Pending))).ToList();
         }
 
         public Dictionary<int, string> GetAmountOfBids()
@@ -81,7 +81,7 @@ namespace Marketplace.Services
             IEnumerable<ModuleModel> modules= GetModulesWithBids();
             foreach(var module in modules)
             {
-                bidCount.Add(module.Id, db.Bids.Where(b => (b.ModuleModelId.Equals(module.Id)) && (b.Accepted.Equals(0))).Count().ToString());
+                bidCount.Add(module.Id, db.Bids.Where(b => (b.ModuleModelId.Equals(module.Id)) && (b.Accepted.Equals(BidStatus.Pending))).Count().ToString());
             }
             return bidCount;
         }
@@ -93,8 +93,7 @@ namespace Marketplace.Services
             BidModel oldBid = this.db.Bids.Find(id);
             ModuleModel currentModule = GetModuleById(oldBid.ModuleModelId);
           
-            this.db.Bids.Update(oldBid); 
-            oldBid.Accepted = 1;
+            this.db.Modules.Update(currentModule); 
             currentModule.HoursFilled+=oldBid.HoursBid;
             this.db.SaveChanges();
         
