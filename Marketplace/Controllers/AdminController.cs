@@ -25,6 +25,7 @@ namespace Marketplace.Controllers
             ViewBag.ViewInstructors= AdminService.ViewInstructors();
             ViewBag.AmountOfBids= AdminService.GetAmountOfBids();
             ViewBag.ViewModules= AdminService.ViewModules();
+            ViewBag.Message= (string)TempData["Message"];
             return View();
         }
 
@@ -62,8 +63,17 @@ namespace Marketplace.Controllers
 
         public IActionResult AcceptBid(int BidId)
         {
-            AdminService.AcceptBid(BidId);
+            
+            if(AdminService.AcceptBid(BidId)==false){
+
+                TempData["Message"] = "Accepting this bid would exceed the maximum hours available for this module";
+                
+            }
+            
             return RedirectToAction("Index", "Admin");
+            
+            
+            
         }
 
         public IActionResult DenyBid(int BidId)

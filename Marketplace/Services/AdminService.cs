@@ -88,16 +88,18 @@ namespace Marketplace.Services
 
         
 
-        public void AcceptBid(int id)
+        public Boolean AcceptBid(int id)
         {
             BidModel oldBid = this.db.Bids.Find(id);
             ModuleModel currentModule = GetModuleById(oldBid.ModuleModelId);
-           
+            if(currentModule.HoursFilled+oldBid.HoursBid <= currentModule.TotalHoursAvailable){
                 this.db.Bids.Update(oldBid); 
                 oldBid.Accepted = 1;
                 currentModule.HoursFilled+=oldBid.HoursBid;
                 this.db.SaveChanges();
-            
+                return true;
+            }
+            else return false;  
         }
 
         public void DenyBid(int id)
